@@ -1,0 +1,155 @@
+docker run -d -p 1521:1521 -e ORACLE_PASSWORD=asdf gvenzl/oracle-xe
+
+https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html
+
+need tools, sqlplus, base client
+
+LD_LIBRARY_PATH=. ./sqlplus SYSTEM@localhost/XE
+
+python3 -m pip install cx_Oracle --upgrade --user
+
+
+LD_LIBRARY_PATH=. python3 # <whereever instantclient lives>
+
+import cx_Oracle
+cx_Oracle.connect(user="system", password="asdf", dsn="localhost/XE")
+
+
+LD_LIBRARY_PATH=~/instantclient_21_6/  ~/instantclient_21_6/sqlplus SYSTEM/asdf@localhost/XE
+
+
+LD_LIBRARY_PATH=~/instantclient_21_6/  ~/instantclient_21_6/sqlldr SYSTEM/asdf@localhost/XE control=control.ctl
+
+
+
+sed -i -e 's|\\"|""|' aka_title.csv
+
+
+
+load data
+infile '/export/scratch1/home/hannes/data/aka_name.csv' 
+into table aka_name
+fields terminated by ',' optionally
+enclosed by '"' 
+(id, person_id, name, imdb_index, name_pcode_cf, name_pcode_nf, surname_pcode, md5sum)
+
+
+
+load data
+infile '/export/scratch1/home/hannes/data/aka_title.csv' 
+into table aka_title
+fields terminated by ',' optionally
+enclosed by '"' 
+(id              ,movie_id        ,title           ,imdb_index      ,kind_id         ,production_year ,phonetic_code   ,episode_of_id   ,season_nr       ,episode_nr      ,note            ,md5sum   )
+
+
+
+load data
+infile '/export/scratch1/home/hannes/data/cast_info.csv' 
+into table cast_info
+fields terminated by ',' optionally
+enclosed by '"' 
+(id             ,person_id      ,movie_id       ,person_role_id ,note           ,nr_order       ,role_id )
+
+
+
+
+load data
+infile '/export/scratch1/home/hannes/data/char_name.csv' 
+into table char_name
+fields terminated by ',' optionally
+enclosed by '"' 
+(id             ,name           ,imdb_index     ,imdb_id        ,name_pcode_nf  ,surname_pcode  ,md5sum         )
+
+
+
+
+load data
+infile '/export/scratch1/home/hannes/data/comp_cast_type.csv' 
+into table comp_cast_type
+fields terminated by ',' optionally
+enclosed by '"' 
+(id, kind)
+
+
+
+
+load data
+infile '/export/scratch1/home/hannes/data/company_name.csv' 
+into table company_name
+fields terminated by ',' optionally
+enclosed by '"' 
+(id            ,  name          ,  country_code  ,  imdb_id       ,  name_pcode_nf ,  name_pcode_sf ,  md5sum        )
+
+
+
+load data
+infile '/export/scratch1/home/hannes/data/complete_cast.csv' 
+into table complete_cast
+fields terminated by ',' optionally
+enclosed by '"' 
+(id        , movie_id  , subject_id, status_id)
+
+
+
+
+
+load data
+infile '/export/scratch1/home/hannes/data/keyword.csv' 
+into table keyword
+fields terminated by ',' optionally
+enclosed by '"' 
+(id            , keyword       , phonetic_code)
+
+
+
+load data
+infile '/export/scratch1/home/hannes/data/movie_companies.csv' 
+into table movie_companies
+fields terminated by ',' optionally
+enclosed by '"' 
+(id              , movie_id        , company_id      , company_type_id , note  )
+
+
+
+
+load data
+infile '/export/scratch1/home/hannes/data/movie_info.csv' 
+into table movie_info
+fields terminated by ',' optionally
+enclosed by '"' 
+(id           , movie_id     , info_type_id , info         , note   )
+
+
+load data
+infile '/export/scratch1/home/hannes/data/movie_info_idx.csv' 
+into table movie_info_idx
+fields terminated by ',' optionally
+enclosed by '"' 
+(id           ,  movie_id     ,  info_type_id ,  info         ,  note        )
+
+
+
+
+load data
+infile '/export/scratch1/home/hannes/data/movie_keyword.csv' 
+into table movie_keyword
+fields terminated by ',' optionally
+enclosed by '"' 
+(id        , movie_id  , keyword_id)
+
+
+
+
+movie_link
+(id             , movie_id       , linked_movie_id, link_type_id )
+
+
+name
+(id            , name          , imdb_index    , imdb_id       , gender        , name_pcode_cf , name_pcode_nf , surname_pcode , md5sum        )
+
+person_info
+(id           ,  person_id    ,  info_type_id ,  info         ,  note  )
+
+title
+(id             , title          , imdb_index     , kind_id        , production_year, imdb_id        , phonetic_code  , episode_of_id  , season_nr      , episode_nr     , series_years   , md5sum )
