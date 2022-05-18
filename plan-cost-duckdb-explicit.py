@@ -19,7 +19,7 @@ con.execute("PRAGMA profile_output='%s'" % profile_filename)
 
 def op_inspect(op):
   cost = 0
-  if op['name'] == 'HASH_JOIN':
+  if op['name'] == 'HASH_JOIN' and not op['extra_info'].startswith('MARK'):
     cost = op['cardinality']
   if 'children' not in op:
     return cost
