@@ -22,7 +22,7 @@ LD_LIBRARY_PATH=~/instantclient_21_6/  ~/instantclient_21_6/sqlldr SYSTEM/asdf@l
 
 
 
-sed -i -e 's|\\"|""|' aka_title.csv
+sed -i -e 's|\\"|""|' *.csv
 
 
 
@@ -30,7 +30,8 @@ load data
 infile '/export/scratch1/home/hannes/data/aka_name.csv' 
 into table aka_name
 fields terminated by ',' optionally
-enclosed by '"' 
+enclosed by '"'
+trailing nullcols
 (id, person_id, name, imdb_index, name_pcode_cf, name_pcode_nf, surname_pcode, md5sum)
 
 
@@ -40,6 +41,7 @@ infile '/export/scratch1/home/hannes/data/aka_title.csv'
 into table aka_title
 fields terminated by ',' optionally
 enclosed by '"' 
+trailing nullcols
 (id              ,movie_id        ,title           ,imdb_index      ,kind_id         ,production_year ,phonetic_code   ,episode_of_id   ,season_nr       ,episode_nr      ,note            ,md5sum   )
 
 
@@ -49,6 +51,7 @@ infile '/export/scratch1/home/hannes/data/cast_info.csv'
 into table cast_info
 fields terminated by ',' optionally
 enclosed by '"' 
+trailing nullcols
 (id             ,person_id      ,movie_id       ,person_role_id ,note           ,nr_order       ,role_id )
 
 
@@ -59,6 +62,7 @@ infile '/export/scratch1/home/hannes/data/char_name.csv'
 into table char_name
 fields terminated by ',' optionally
 enclosed by '"' 
+trailing nullcols
 (id             ,name           ,imdb_index     ,imdb_id        ,name_pcode_nf  ,surname_pcode  ,md5sum         )
 
 
@@ -69,6 +73,7 @@ infile '/export/scratch1/home/hannes/data/comp_cast_type.csv'
 into table comp_cast_type
 fields terminated by ',' optionally
 enclosed by '"' 
+trailing nullcols
 (id, kind)
 
 
@@ -79,6 +84,7 @@ infile '/export/scratch1/home/hannes/data/company_name.csv'
 into table company_name
 fields terminated by ',' optionally
 enclosed by '"' 
+trailing nullcols
 (id            ,  name          ,  country_code  ,  imdb_id       ,  name_pcode_nf ,  name_pcode_sf ,  md5sum        )
 
 
@@ -88,6 +94,7 @@ infile '/export/scratch1/home/hannes/data/complete_cast.csv'
 into table complete_cast
 fields terminated by ',' optionally
 enclosed by '"' 
+trailing nullcols
 (id        , movie_id  , subject_id, status_id)
 
 
@@ -99,6 +106,7 @@ infile '/export/scratch1/home/hannes/data/keyword.csv'
 into table keyword
 fields terminated by ',' optionally
 enclosed by '"' 
+trailing nullcols
 (id            , keyword       , phonetic_code)
 
 
@@ -108,6 +116,8 @@ infile '/export/scratch1/home/hannes/data/movie_companies.csv'
 into table movie_companies
 fields terminated by ',' optionally
 enclosed by '"' 
+trailing nullcols
+
 (id              , movie_id        , company_id      , company_type_id , note  )
 
 
@@ -118,6 +128,8 @@ infile '/export/scratch1/home/hannes/data/movie_info.csv'
 into table movie_info
 fields terminated by ',' optionally
 enclosed by '"' 
+trailing nullcols
+
 (id           , movie_id     , info_type_id , info         , note   )
 
 
@@ -126,6 +138,8 @@ infile '/export/scratch1/home/hannes/data/movie_info_idx.csv'
 into table movie_info_idx
 fields terminated by ',' optionally
 enclosed by '"' 
+trailing nullcols
+
 (id           ,  movie_id     ,  info_type_id ,  info         ,  note        )
 
 
@@ -136,6 +150,8 @@ infile '/export/scratch1/home/hannes/data/movie_keyword.csv'
 into table movie_keyword
 fields terminated by ',' optionally
 enclosed by '"' 
+trailing nullcols
+
 (id        , movie_id  , keyword_id)
 
 

@@ -27,4 +27,4 @@ for f in files:
       query_string = file.read()
       con.execute("EXPLAIN (FORMAT JSON, ANALYZE TRUE) %s" % query_string)
       explain = con.fetchone()[0][0]
-      print("postgres\t%s\t%d" % (f.replace('.sql', '').replace('explicit/',''), op_inspect(explain['Plan'])))
+      print("postgres-explicit\t%s\t%d" % (f.replace('.sql', '').replace('explicit/',''), op_inspect(explain['Plan'])))

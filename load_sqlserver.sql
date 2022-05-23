@@ -1,0 +1,23 @@
+BULK INSERT aka_name FROM '/job/data-quotes/aka_name.csv' WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT aka_title FROM '/job/data-quotes/aka_title.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT cast_info FROM '/job/data-quotes/cast_info.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT char_name FROM '/job/data-quotes/char_name.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT comp_cast_type FROM '/job/data-quotes/comp_cast_type.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT company_name FROM '/job/data-quotes/company_name.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT company_type FROM '/job/data-quotes/company_type.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT complete_cast FROM '/job/data-quotes/complete_cast.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT info_type FROM '/job/data-quotes/info_type.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT keyword FROM '/job/data-quotes/keyword.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT kind_type FROM '/job/data-quotes/kind_type.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT link_type FROM '/job/data-quotes/link_type.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT movie_companies FROM '/job/data-quotes/movie_companies.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT movie_info FROM '/job/data-quotes/movie_info.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT movie_info_idx FROM '/job/data-quotes/movie_info_idx.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT movie_keyword FROM '/job/data-quotes/movie_keyword.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT movie_link FROM '/job/data-quotes/movie_link.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT name FROM '/job/data-quotes/name.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT person_info FROM '/job/data-quotes/person_info.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT role_type FROM '/job/data-quotes/role_type.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+BULK INSERT title FROM '/job/data-quotes/title.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
+
+-- BULK INSERT movie_info FROM '/job/movie-info-truncated.csv'  WITH (FORMAT = 'CSV', CODEPAGE = 'RAW');
