@@ -2,7 +2,7 @@ import duckdb
 import json
 import glob
 import os
-files = glob.glob("[0-9]*.sql")
+files = glob.glob("queries/[0-9]*.sql")
 files.sort()
 # FIXME
 #files = ['01a.sql']
@@ -18,7 +18,7 @@ con.execute("PRAGMA profile_output='%s'" % profile_filename)
 
 def op_inspect(op):
   cost = 0
-  if op['name'] == 'HASH_JOIN':
+  if op['name'] == 'HASH_JOIN' and not op['extra_info'].startswith('MARK'):
     cost = op['cardinality']
   if 'children' not in op:
     return cost
@@ -35,4 +35,4 @@ for f in files:
 
       explain = json.load(open(profile_filename))
       #print(print(json.dumps(explain, indent=4, sort_keys=True)))
-      print("duckdb\t%s\t%d" % (f.replace('.sql', ''), op_inspect(explain)))
+      print("duckdb\t%s\t%d" % (f.replace('.sql', '').replace('queries/', ''), op_inspect(explain)))
